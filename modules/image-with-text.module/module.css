@@ -1,0 +1,24 @@
+.image-with-text__inner {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	gap: 80px;
+}
+
+.image-with-text__bullets {
+	padding: 0;
+	list-style: none;
+}
+
+.image-with-text__bullet {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.8rem;
+	margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 767px) {
+	.image-with-text__inner {
+		grid-template-columns: 1fr;
+	}
+}

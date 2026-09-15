@@ -1,0 +1,241 @@
+[ {
+  "id" : "breadcrumb",
+  "name" : "breadcrumb",
+  "label" : "Breadcrumb",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "breadcrumb.home_label",
+    "name" : "home_label",
+    "label" : "Home label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Home"
+  }, {
+    "id" : "breadcrumb.home_link",
+    "name" : "home_link",
+    "label" : "Home link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "href" : "/",
+        "type" : "EXTERNAL"
+      }
+    }
+  }, {
+    "id" : "breadcrumb.current_label",
+    "name" : "current_label",
+    "label" : "Current page label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "About Our Team"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : true,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : true,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "About Us"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Nexus is designed by a global collective of CMS architects, visual designers, and system engineers committed to helping enterprise teams scale effortlessly."
+}, {
+  "id" : "styles",
+  "name" : "styles",
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "styles.background",
+    "name" : "background",
+    "label" : "Background color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#f8fafc",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "styles.border",
+    "name" : "border",
+    "label" : "Border",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "styles.border.border",
+      "name" : "border",
+      "label" : "Border",
+      "required" : false,
+      "locked" : false,
+      "allow_custom_border_sides" : false,
+      "type" : "border",
+      "display_width" : null,
+      "default" : { }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  }, {
+    "id" : "styles.padding",
+    "name" : "padding",
+    "label" : "Padding",
+    "required" : false,
+    "locked" : false,
+    "type" : "spacing",
+    "display_width" : null,
+    "default" : {
+      "padding" : {
+        "top" : {
+          "value" : 80,
+          "units" : "px"
+        },
+        "right" : {
+          "value" : 80,
+          "units" : "px"
+        },
+        "bottom" : {
+          "value" : 80,
+          "units" : "px"
+        },
+        "left" : {
+          "value" : 80,
+          "units" : "px"
+        }
+      }
+    }
+  }, {
+    "id" : "styles.gap",
+    "name" : "gap",
+    "label" : "Content gap",
+    "required" : false,
+    "locked" : false,
+    "display" : "slider",
+    "min" : 0,
+    "max" : 80,
+    "step" : 1,
+    "suffix" : "px",
+    "type" : "number",
+    "display_width" : null,
+    "default" : 20
+  } ],
+  "tab" : "STYLE",
+  "expanded" : true,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}, {
+  "id" : "breadcrumb_styles",
+  "name" : "breadcrumb_styles",
+  "label" : "Breadcrumb",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "breadcrumb_styles.text_color",
+    "name" : "text_color",
+    "label" : "Text color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#64748b",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "breadcrumb_styles.current_color",
+    "name" : "current_color",
+    "label" : "Current page color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#0f172a",
+      "opacity" : 100
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}, {
+  "id" : "heading_styles",
+  "name" : "heading_styles",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "heading_styles.text_color",
+    "name" : "text_color",
+    "label" : "Text color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#0f172a",
+      "opacity" : 100
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}, {
+  "id" : "description_styles",
+  "name" : "description_styles",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "description_styles.text_color",
+    "name" : "text_color",
+    "label" : "Text color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#64748b",
+      "opacity" : 100
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+} ]

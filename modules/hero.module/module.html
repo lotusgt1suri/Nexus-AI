@@ -1,0 +1,81 @@
+{% set primary_href = module.primary_button.link.url.href %} {% if
+module.primary_button.link.url.type == "EMAIL_ADDRESS" %} {% set primary_href =
+"mailto:" + primary_href %} {% endif %} {% set secondary_href =
+module.secondary_button.link.url.href %} {% if
+module.secondary_button.link.url.type == "EMAIL_ADDRESS" %} {% set
+secondary_href = "mailto:" + secondary_href %} {% endif %}
+
+{% require_css %}
+  <style>
+		{% scope_css %}
+		.hero {
+			background-color: rgba({{ module.style.container.background_color.color|convert_rgb }},{{ module.style.container.background_color.opacity / 100 }});
+      padding: {{ module.style.container.spacing.desktop.padding.top.value }} {{ module.style.container.spacing.desktop.padding.right.value }} {{ module.style.container.spacing.desktop.padding.bottom.value }} {{ module.style.container.spacing.desktop.padding.left.value }};
+		}
+		
+		.hero__content {
+			max-width: {{ module.style.content.max_width ~ "px" }};
+		}
+		
+		.hero__kicker {
+			background-color: rgba({{ module.style.hero_badge.background_color.color|convert_rgb }},{{ module.style.hero_badge.background_color.opacity / 100 }});
+			color: rgba({{ module.style.hero_badge.color.color|convert_rgb }},{{ module.style.hero_badge.color.opacity /100 }});
+			border-radius: {{ module.style.hero_badge.corner ~ "px" }}; 
+      {{ module.style.hero_badge.border.css }};
+		}
+		{% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section
+  class="hero content-wrapper"
+  aria-labelledby="{{ name|escape_attr }}-heading"
+>
+  <div class="hero__content">
+    {% if module.kicker %}
+    <p class="hero__kicker">{{ module.kicker|escape_html }}</p>
+    {% endif %}
+    <h1 class="hero__heading" id="{{ name|escape_attr }}-heading">
+      {{ module.heading|escape_html }}
+    </h1>
+    {% if module.description %}
+    <p class="hero__description">{{ module.description|escape_html }}</p>
+    {% endif %}
+    <div class="hero__buttons">
+      {% if primary_href %}<a
+        class="button hero__button hero__button--primary"
+        href="{{ primary_href|escape_url }}"
+        >{{ module.primary_button.text|escape_html }}</a
+      >{% endif %} {% if secondary_href %}<a
+        class="button hero__button hero__button--secondary"
+        href="{{ secondary_href|escape_url }}"
+        >{{ module.secondary_button.text|escape_html }}</a
+      >{% endif %}
+    </div>
+  </div>
+  {% if module.image.src %}
+  <div class="hero__media">
+    {% if module.image.src %} {% set sizeAttrs = 'width="{{
+    module.image.width|escape_attr }}" height="{{
+    module.image.height|escape_attr }}"' %} {% if module.image.size_type ==
+    'auto' %} {% set sizeAttrs = 'width="{{ module.image.width|escape_attr }}"
+    height="{{ module.image.height|escape_attr }}" style="max-width: 100%;
+    height: auto;"' %} {% elif module.image.size_type == 'auto_custom_max' %} {%
+    set sizeAttrs = 'width="{{ module.image.max_width|escape_attr }}" height="{{
+    module.image.max_height|escape_attr }}" style="max-width: 100%; height:
+    auto;"' %} {% endif %} {% set loadingAttr = module.image.loading !=
+    'disabled' ? 'loading="{{ module.image.loading|escape_attr }}"' : '' %}
+    <img
+      src="{{ module.image.src|escape_url }}"
+      alt="{{ module.image.alt|escape_attr }}"
+      {{
+      loadingAttr
+      }}
+      {{
+      sizeAttrs
+      }}
+    />
+    {% endif %}
+  </div>
+  {% endif %}
+</section>

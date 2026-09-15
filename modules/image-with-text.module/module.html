@@ -1,0 +1,78 @@
+{% set button_href = module.button.link.url.href %} 
+{% if module.button.link.url.type == "EMAIL_ADDRESS" %} {% set button_href = "mailto:" + button_href %} 
+{% endif %} 
+
+{% require_css %}
+<style>
+	{% scope_css %}
+	{% if module.style.switch_column %}
+	.image-with-text__content {
+		order: -1;
+	}
+
+	.image-with-text__mini-title {
+		font-size: {{ module.style.mini_title.font_size ~ "px" }};
+		color: rgba({{ module.style.mini_title.color.color|convert_rgb }},{{ module.style.mini_title.color.opacity / 100 }});
+	}
+	{% endif %}
+	{% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="image-with-text content-wrapper">
+	<div class="image-with-text__inner">
+		<div class="image-with-text__image-wrap">
+			<img
+					 class="image-with-text__image"
+					 src="{{ module.image.src|default(get_asset_url('../../images/image-with-text-workspace.png'))|escape_url }}"
+					 alt="{{ module.image.alt|default('Product workspace')|escape_attr }}"
+					 loading="{{ module.image.loading|default('lazy')|escape_attr }}"
+					 >
+		</div>
+
+		<div class="image-with-text__content">
+			{% if module.mini_title %}
+			<p class="image-with-text__mini-title">{{ module.mini_title|escape_html }}</p>
+			{% endif %} 
+			{% if module.title %}
+			<h2 class="image-with-text__title">{{ module.title|escape_html }}</h2>
+			{% endif %} 
+			{% if module.description %}
+			<p class="image-with-text__description">
+				{{ module.description|escape_html }}
+			</p>
+			{% endif %} 
+
+			<ul class="image-with-text__bullets">
+				{% for item in module.bullets.list_item %}
+				<li class="image-with-text__bullet">
+					<span>
+						{% if module.bullets.icon.src %}
+						{% set sizeAttrs = 'width="{{ module.bullets.icon.width|escape_attr }}" height="{{ module.bullets.icon.height|escape_attr }}"' %}
+						{% if module.bullets.icon.size_type == 'auto' %}
+						{% set sizeAttrs = 'width="{{ module.bullets.icon.width|escape_attr }}" height="{{ module.bullets.icon.height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+						{% elif module.bullets.icon.size_type == 'auto_custom_max' %}
+						{% set sizeAttrs = 'width="{{ module.bullets.icon.max_width|escape_attr }}" height="{{ module.bullets.icon.max_height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+						{% endif %}
+						{% set loadingAttr = module.bullets.icon.loading != 'disabled' ? 'loading="{{ module.bullets.icon.loading|escape_attr }}"' : '' %}
+						<img src="{{ module.bullets.icon.src|escape_url }}" alt="{{ module.bullets.icon.alt|escape_attr }}" {{ loadingAttr }} {{ sizeAttrs }}>
+						{% endif %}
+					</span>
+					<span class="image-with-text__bullet-text">{{ item.text|escape_html }}</span>
+				</li>
+				{% endfor %}
+			</ul>
+
+			{% if button_href and module.button.text %}
+			<a class="image-with-text__button button" href="{{ button_href|escape_url }}"
+				 {% if module.button.link.open_in_new_tab %}
+				 target="_blank"
+				 rel="noopener"
+				 {% endif %}
+				 >
+				{{ module.button.text|escape_html }}
+			</a>
+			{% endif %}
+		</div>
+	</div>
+</section>

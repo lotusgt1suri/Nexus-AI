@@ -1,0 +1,165 @@
+[ {
+  "id" : "eyebrow",
+  "name" : "eyebrow",
+  "label" : "Eyebrow",
+  "required" : true,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Special Release"
+}, {
+  "id" : "message",
+  "name" : "message",
+  "label" : "Message",
+  "required" : true,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Nexus CMS Theme v2.0 is now live with enhanced global controls and dynamic grid systems."
+}, {
+  "id" : "link",
+  "name" : "link",
+  "label" : "Learn more link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "display_width" : null,
+  "default" : {
+    "url" : {
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "open_in_new_tab" : false,
+    "no_follow" : false
+  }
+}, {
+  "id" : "link_text",
+  "name" : "link_text",
+  "label" : "Link text",
+  "required" : true,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Learn more"
+}, {
+  "id" : "styles",
+  "name" : "styles",
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "styles.background",
+    "name" : "background",
+    "label" : "Background color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#ff5c35",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "styles.text",
+    "name" : "text",
+    "label" : "Text color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#ffffff",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "styles.padding",
+    "name" : "padding",
+    "label" : "Padding",
+    "required" : false,
+    "locked" : false,
+    "type" : "spacing",
+    "display_width" : null,
+    "default" : {
+      "padding" : {
+        "top" : {
+          "value" : 12,
+          "units" : "px"
+        },
+        "right" : {
+          "value" : 40,
+          "units" : "px"
+        },
+        "bottom" : {
+          "value" : 12,
+          "units" : "px"
+        },
+        "left" : {
+          "value" : 40,
+          "units" : "px"
+        }
+      }
+    }
+  }, {
+    "id" : "styles.alignment",
+    "name" : "alignment",
+    "label" : "Text alignment",
+    "required" : false,
+    "locked" : false,
+    "alignment_direction" : "HORIZONTAL",
+    "type" : "alignment",
+    "display_width" : null,
+    "default" : {
+      "horizontal_align" : "CENTER"
+    }
+  }, {
+    "id" : "styles.mobile_padding",
+    "name" : "mobile_padding",
+    "label" : "Mobile padding",
+    "required" : false,
+    "locked" : false,
+    "type" : "spacing",
+    "display_width" : null,
+    "default" : {
+      "padding" : {
+        "top" : {
+          "value" : 10,
+          "units" : "px"
+        },
+        "right" : {
+          "value" : 20,
+          "units" : "px"
+        },
+        "bottom" : {
+          "value" : 10,
+          "units" : "px"
+        },
+        "left" : {
+          "value" : 20,
+          "units" : "px"
+        }
+      }
+    }
+  }, {
+    "id" : "styles.mobile_alignment",
+    "name" : "mobile_alignment",
+    "label" : "Mobile text alignment",
+    "required" : false,
+    "locked" : false,
+    "alignment_direction" : "HORIZONTAL",
+    "type" : "alignment",
+    "display_width" : null,
+    "default" : {
+      "horizontal_align" : "CENTER"
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : true,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+} ]

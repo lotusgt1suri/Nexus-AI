@@ -1,0 +1,21 @@
+/* @import url('http://example.com/example_style.css'); */
+
+/***********************************************/
+/* CSS @imports must be at the top of the file */
+/* Add them above this section                 */
+/***********************************************/
+
+/*****************************************/
+/* Start your style declarations here    */
+/*****************************************/
+
+.footer .menu__item.menu__item--depth-1 {
+	display: block;
+	padding-inline: 0;
+	padding-block: 0;
+	margin-bottom: 8px;
+}
+
+.footer .menu__item.menu__item--depth-1 .menu__link:hover {
+	color:{{ theme.footer.text.color.color }};
+}

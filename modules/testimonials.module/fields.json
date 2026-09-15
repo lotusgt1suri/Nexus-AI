@@ -1,0 +1,97 @@
+[ {
+  "id" : "eyebrow",
+  "name" : "eyebrow",
+  "label" : "Eyebrow",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "SUCCESS STORIES"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : true,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "What corporate marketing leads say"
+}, {
+  "id" : "testimonials",
+  "name" : "testimonials",
+  "label" : "Testimonials",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "testimonials.avatar",
+    "name" : "avatar",
+    "label" : "Avatar",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : true,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "loading" : "lazy",
+      "alt" : "Testimonial author"
+    }
+  }, {
+    "id" : "testimonials.quote",
+    "name" : "quote",
+    "label" : "Quote",
+    "required" : true,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Nexus transformed how our design systems are maintained. What used to take two weeks of alignment takes five minutes inside the global setting modules."
+  }, {
+    "id" : "testimonials.author_name",
+    "name" : "author_name",
+    "label" : "Name",
+    "required" : true,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Sarah Jenkins"
+  }, {
+    "id" : "testimonials.role",
+    "name" : "role",
+    "label" : "Role",
+    "required" : true,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Head of Web at CloudScale"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : true,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "quote" : "Nexus transformed how our design systems are maintained. What used to take two weeks of alignment takes five minutes inside the global setting modules.",
+    "author_name" : "Sarah Jenkins",
+    "role" : "Head of Web at CloudScale"
+  }, {
+    "quote" : "The load speeds are incredible. We migrated 400 pages to the HubSpot CMS using the Nexus template layout and saw a 35% jump in our search conversions.",
+    "author_name" : "David Chen",
+    "role" : "VP Marketing, Meridian Growth"
+  }, {
+    "quote" : "Our designers build blocks without touching code. The design guidelines remain strictly locked, preventing layout issues across foreign markets.",
+    "author_name" : "Elena Rostova",
+    "role" : "Design Director, FinLeap International"
+  } ]
+} ]

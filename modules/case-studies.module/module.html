@@ -1,0 +1,76 @@
+{% set header_href = module.header_link.link.url.href|default('#') %} {%
+require_css %}
+<style>
+  {% scope_css %}
+  .case-studies__card {
+    background-color: rgba({{ module.style.card_background.color|convert_rgb }}, {{ module.style.card_background.opacity / 100 }});
+    border-color: rgba({{ module.style.card_border.color|convert_rgb }}, {{ module.style.card_border.opacity / 100 }});
+    border-radius: {{ module.style.card_radius }}px;
+    box-shadow: {{ module.style.card_shadow }};
+  }
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section
+  class="case-studies content-wrapper"
+  aria-labelledby="{{ name|escape_attr }}-heading"
+>
+  <div class="case-studies__header">
+    <div class="case-studies__intro">
+      {% if module.mini_title %}
+      <p class="case-studies__mini-title">
+        {{ module.mini_title|escape_html }}
+      </p>
+      {% endif %}
+      <h2 class="case-studies__heading" id="{{ name|escape_attr }}-heading">
+        {{ module.heading|escape_html }}
+      </h2>
+    </div>
+    {% if module.header_link.text %}
+    <a class="case-studies__header-link" href="{{ header_href|escape_url }}"
+      >{{ module.header_link.text|escape_html }}</a
+    >
+    {% endif %}
+  </div>
+
+  <div class="case-studies__grid">
+    {% for card in module.cards %} {% set fallback_image = '' %} {% if
+    loop.index == 1 %}{% set fallback_image =
+    get_asset_url('../../images/case-study-healthcare.png') %}{% endif %} {% if
+    loop.index == 2 %}{% set fallback_image =
+    get_asset_url('../../images/case-study-fintech.png') %}{% endif %} {% if
+    loop.index == 3 %}{% set fallback_image =
+    get_asset_url('../../images/case-study-education.png') %}{% endif %}
+    <article class="case-studies__card">
+      <div class="case-studies__image-wrap">
+        <img
+          class="case-studies__image"
+          src="{{ card.image.src|default(fallback_image)|escape_url }}"
+          alt="{{ card.image.alt|default(card.title)|escape_attr }}"
+          loading="{{ card.image.loading|default('lazy')|escape_attr }}"
+          width="1344"
+          height="768"
+        />
+      </div>
+      <div class="case-studies__content">
+        <p class="case-studies__category">{{ card.category|escape_html }}</p>
+        <h3 class="case-studies__title">{{ card.title|escape_html }}</h3>
+        <p class="case-studies__summary">{{ card.summary|escape_html }}</p>
+        <a
+          class="case-studies__link"
+          href="{{ card.link.url.href|default('#')|escape_url }}"
+        >
+          <span>Read Case Study</span>
+          <img
+            src="{{ get_asset_url('../../images/case-study-arrow.svg')|escape_url }}"
+            alt=""
+            width="14"
+            height="14"
+          />
+        </a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>

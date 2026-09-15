@@ -1,0 +1,29 @@
+[ {
+  "id" : "link",
+  "name" : "link",
+  "label" : "Link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "CALL_TO_ACTION" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "display_width" : null,
+  "default" : {
+    "url" : {
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "no_follow" : false,
+    "open_in_new_tab" : false
+  }
+}, {
+  "id" : "link_text",
+  "name" : "link_text",
+  "label" : "Link text",
+  "required" : true,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Add a link here"
+} ]

@@ -1,0 +1,99 @@
+{% import "../../templates/macros.html" as content %} {% require_css %}
+<style>
+  {% scope_css %}
+  .grid-col__header-mini-title {
+  	font-size: {{ module.style.mini_title.font_size ~ "px" }};
+  	color: rgba({{ module.style.mini_title.color.color|convert_rgb }},{{ module.style.mini_title.color.opacity / 100 }});
+  }
+
+  .grid-col__header-title {
+  	font-size: {{ module.style.title.font_size ~ "px" }};
+  	color: rgba({{ module.style.title.color.color|convert_rgb }},{{ module.style.title.color.opacity / 100 }});
+  }
+
+  .grid-col__card-wrap {
+  	gap: {{ module.style.card.gap ~ "px" }};
+  	grid-template-columns: repeat({{ module.select_grid_col }}, 1fr);
+  }
+
+  .grid-col__card {
+  	background-color: rgba({{ module.style.card.background_color.color|convert_rgb }},{{ module.style.card.background_color.opacity / 100 }});
+  	border: {{ module.style.card.border.thickness ~ "px" }} {{ module.style.card.border.style }} rgba({{ module.style.card.border.color.color|convert_rgb }},{{ module.style.card.border.color.opacity / 100 }});
+  	border-radius: {{ module.style.card.radius ~ "px" }};
+  	padding: {{ module.style.card.padding.desktop.padding.top.value ~ "px" }} {{ module.style.card.padding.desktop.padding.right.value ~ "px" }} {{ module.style.card.padding.desktop.padding.bottom.value ~ "px" }} {{ module.style.card.padding.desktop.padding.left.value ~ "px" }};
+  }
+
+  .grid-col__card-img {
+  	background-color: rgba({{ module.style.card.icon.background_color.color|convert_rgb }},{{ module.style.card.icon.background_color.opacity / 100 }});
+  }
+
+  .grid-col__card-title {
+  	color: rgba({{ module.style.card.title.color.color|convert_rgb }},{{ module.style.card.title.color.opacity / 100 }});
+  	font-size: {{ module.style.card.title.font_size ~ "px" }};
+  }
+
+  .grid-col__card-desc {
+  	color: rgba({{ module.style.card.description.color.color|convert_rgb }}
+  		{{ module.style.card.description.color.opacity / 100 }});
+  	font-size: {{ module.style.card.description.font_size ~ "px" }};
+  }
+  @media only screen and (max-width: 767px) {
+  	.grid-col__card-wrap {
+  		grid-template-columns: 1fr;
+  	}
+
+  	.grid-col__card {
+  		padding: {{ module.style.card.padding.mobile.padding.top.value ~ "px" }} {{ module.style.card.padding.mobile.padding.right.value ~ "px" }} {{ module.style.card.padding.mobile.padding.bottom.value ~ "px" }} {{ module.style.card.padding.mobile.padding.left.value ~ "px" }};
+  	}
+  }
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="grid-col content-wrapper">
+  <div class="grid-col__header">
+    {% if module.mini_title %}
+    <p class="grid-col__header-mini-title">{{ module.mini_title }}</p>
+    {% endif %} {% if module.title %}
+    <h2 class="grid-col__header-title">{{ module.title }}</h2>
+    {% endif %}
+  </div>
+
+  <div class="grid-col__card-wrap">
+    {% for item in module.card %}
+    <div class="grid-col__card">
+      <span class="grid-col__card-img">
+        {% if item.image.src %} {% set sizeAttrs = 'width="{{
+        item.image.width|escape_attr }}" height="{{
+        item.image.height|escape_attr }}"' %} {% if item.image.size_type ==
+        'auto' %} {% set sizeAttrs = 'width="{{ item.image.width|escape_attr }}"
+        height="{{ item.image.height|escape_attr }}" style="max-width: 100%;
+        height: auto;"' %} {% elif item.image.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ item.image.max_width|escape_attr }}"
+        height="{{ item.image.max_height|escape_attr }}" style="max-width: 100%;
+        height: auto;"' %} {% endif %} {% set loadingAttr = item.image.loading
+        != 'disabled' ? 'loading="{{ item.image.loading|escape_attr }}"' : '' %}
+        <img
+          src="{{ item.image.src|escape_url }}"
+          alt="{{ item.image.alt|escape_attr }}"
+          {{
+          loadingAttr
+          }}
+          {{
+          sizeAttrs
+          }}
+        />
+        {% endif %}
+      </span>
+
+      <div class="grid-col__card-content">
+        {% if item.title %}
+        <h3 class="grid-col__card-title">{{ item.title }}</h3>
+        {% endif %} {% if item.description %}
+        <p class="grid-col__card-desc">{{ item.description }}</p>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

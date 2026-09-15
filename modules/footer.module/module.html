@@ -1,0 +1,113 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+    .footer {
+      background: #0b0f19;
+    }
+
+    .footer__heading {
+      color: #ffffff;
+    }
+
+    .footer__copy,
+    .footer__link,
+    .footer__legal {
+      color: #64748b;
+    }
+
+    .footer__phone {
+      color: #ff5c35;
+    }
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<footer class="footer">
+  <div class="footer__columns">
+    <div class="footer__brand">
+      <div class="footer__logo">
+        <span class="footer__logo-mark" aria-hidden="true">N</span>
+        <span class="footer__logo-name"
+          >{{ module.brand_name|escape_html }}</span
+        >
+      </div>
+      {% if module.brand_description %}
+      <p class="footer__copy">{{ module.brand_description|escape_html }}</p>
+      {% endif %}
+    </div>
+
+    <nav class="footer__column" aria-label="Quick links">
+      <h2 class="footer__heading">Quick Links</h2>
+      {% for item in module.quick_links %}
+      <a
+        class="footer__link"
+        href="{{ item.link.url.href|default('#')|escape_url }}"
+        >{{ item.text|escape_html }}</a
+      >
+      {% endfor %}
+    </nav>
+
+    <nav class="footer__column" aria-label="Resources">
+      <h2 class="footer__heading">Resources</h2>
+      {% for item in module.resource_links %}
+      <a
+        class="footer__link"
+        href="{{ item.link.url.href|default('#')|escape_url }}"
+        >{{ item.text|escape_html }}</a
+      >
+      {% endfor %}
+    </nav>
+
+    <div class="footer__column footer__contact">
+      <h2 class="footer__heading">Contact Us</h2>
+      {% if module.contact.address %}
+      <p class="footer__copy">{{ module.contact.address|escape_html }}</p>
+      {% endif %} {% if module.contact.email %}<a
+        class="footer__link footer__email"
+        href="mailto:{{ module.contact.email|escape_attr }}"
+        >{{ module.contact.email|escape_html }}</a
+      >{% endif %} {% if module.contact.phone %}<a
+        class="footer__phone"
+        href="tel:{{ module.contact.phone|replace(' ', '')|escape_attr }}"
+        >{{ module.contact.phone|escape_html }}</a
+      >{% endif %}
+    </div>
+  </div>
+
+  <div class="footer__divider" aria-hidden="true">
+    <img
+      src="{{ get_asset_url('../../images/footer-divider.svg')|escape_url }}"
+      alt=""
+      width="100%"
+      height="1"
+    />
+  </div>
+
+  <div class="footer__bottom">
+    <p class="footer__legal">{{ module.copyright|escape_html }}</p>
+    <div class="footer__socials">
+      {% for social in module.socials %} {% set social_icon = '' %} {% if
+      social.accessible_label == 'LinkedIn' %}{% set social_icon =
+      get_asset_url('../../images/footer-linkedin.svg') %}{% endif %} {% if
+      social.accessible_label == 'Twitter' %}{% set social_icon =
+      get_asset_url('../../images/footer-twitter.svg') %}{% endif %} {% if
+      social.accessible_label == 'Facebook' %}{% set social_icon =
+      get_asset_url('../../images/footer-facebook.svg') %}{% endif %} {% if
+      social.accessible_label == 'GitHub' %}{% set social_icon =
+      get_asset_url('../../images/footer-github.svg') %}{% endif %}
+      <a
+        class="footer__social"
+        href="{{ social.link.url.href|default('#')|escape_url }}"
+        aria-label="{{ social.accessible_label|escape_attr }}"
+      >
+        <img
+          src="{{ social.icon.src|default(social_icon)|escape_url }}"
+          alt=""
+          width="16"
+          height="16"
+        />
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</footer>

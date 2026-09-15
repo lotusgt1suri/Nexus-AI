@@ -1,0 +1,19 @@
+.grid-col__header {
+	margin-bottom: 4rem;
+}
+
+.grid-col__header-mini-title,
+.grid-col__card-title {
+	margin-bottom: 8px;
+}
+
+.grid-col__card-wrap {
+	display: grid;
+}
+
+.grid-col__card-img {
+	border-radius: 8px;
+	display: inline-flex;
+	margin-bottom: 1rem;
+	padding: 1rem;
+}

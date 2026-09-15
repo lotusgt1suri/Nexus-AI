@@ -1,0 +1,250 @@
+[ {
+  "id" : "brand_name",
+  "name" : "brand_name",
+  "label" : "Brand name",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Nexus"
+}, {
+  "id" : "brand_description",
+  "name" : "brand_description",
+  "label" : "Brand description",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Nexus is the ultimate multipurpose HubSpot CMS theme designed for high conversion, clean typography, and seamless deployment across global marketing sites."
+}, {
+  "id" : "quick_links",
+  "name" : "quick_links",
+  "label" : "Quick links",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "quick_links.text",
+    "name" : "text",
+    "label" : "Text",
+    "required" : true,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Services"
+  }, {
+    "id" : "quick_links.link",
+    "name" : "link",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "CALL_TO_ACTION" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "text" : "Services"
+  }, {
+    "text" : "About Our Team"
+  }, {
+    "text" : "Latest Work"
+  }, {
+    "text" : "Corporate Solutions"
+  }, {
+    "text" : "CMS Pricing"
+  } ]
+}, {
+  "id" : "resource_links",
+  "name" : "resource_links",
+  "label" : "Resource links",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "resource_links.text",
+    "name" : "text",
+    "label" : "Text",
+    "required" : true,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "HubSpot CMS Guide"
+  }, {
+    "id" : "resource_links.link",
+    "name" : "link",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "CALL_TO_ACTION" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "text" : "HubSpot CMS Guide"
+  }, {
+    "text" : "Theme Documentation"
+  }, {
+    "text" : "Changelog"
+  }, {
+    "text" : "System Status"
+  }, {
+    "text" : "Developer API"
+  } ]
+}, {
+  "id" : "contact",
+  "name" : "contact",
+  "label" : "Contact",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "contact.address",
+    "name" : "address",
+    "label" : "Address",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Headquarters: 100 Federal Street, Suite 400, Boston, MA 02110"
+  }, {
+    "id" : "contact.email",
+    "name" : "email",
+    "label" : "Email",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "support@nexus-theme.com"
+  }, {
+    "id" : "contact.phone",
+    "name" : "phone",
+    "label" : "Phone",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "+1 (800) 555-0199"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}, {
+  "id" : "copyright",
+  "name" : "copyright",
+  "label" : "Copyright",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "© 2026 Nexus Systems LLC. HubSpot is a registered trademark of HubSpot, Inc."
+}, {
+  "id" : "socials",
+  "name" : "socials",
+  "label" : "Social links",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "socials.accessible_label",
+    "name" : "accessible_label",
+    "label" : "Accessible label",
+    "required" : true,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "LinkedIn"
+  }, {
+    "id" : "socials.icon",
+    "name" : "icon",
+    "label" : "Icon",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "loading" : "lazy"
+    }
+  }, {
+    "id" : "socials.link",
+    "name" : "link",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "CALL_TO_ACTION" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "accessible_label" : "LinkedIn"
+  }, {
+    "accessible_label" : "Twitter"
+  }, {
+    "accessible_label" : "Facebook"
+  }, {
+    "accessible_label" : "GitHub"
+  } ]
+} ]

@@ -1,0 +1,62 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+    .testimonials {
+      background: #ffffff;
+    }
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="testimonials content-wrapper" aria-labelledby="{{ name|escape_attr }}-heading">
+  <div class="testimonials__header">
+    {% if module.eyebrow %}
+    <p class="testimonials__eyebrow">{{ module.eyebrow|escape_html }}</p>
+    {% endif %}
+    <h2 class="testimonials__heading" id="{{ name|escape_attr }}-heading">
+      {{ module.heading|escape_html }}
+    </h2>
+  </div>
+
+  <div class="testimonials__grid">
+    {% for testimonial in module.testimonials %}
+    <article class="testimonials__card">
+      <div class="testimonials__stars" aria-label="5 out of 5 stars">
+        {% for star in range(5) %}
+        <img
+          src="{{ get_asset_url('../../images/testimonial-star.svg')|escape_url }}"
+          alt=""
+          width="16"
+          height="16"
+        />
+        {% endfor %}
+      </div>
+      <p class="testimonials__quote">
+        &quot;{{ testimonial.quote|escape_html }}&quot;
+      </p>
+      <div class="testimonials__author">
+        {% set avatar_fallback = '' %} {% if testimonial.author_name == 'Sarah
+        Jenkins' %}{% set avatar_fallback =
+        get_asset_url('../../images/testimonial-sarah.png') %}{% endif %} {% if
+        testimonial.author_name == 'David Chen' %}{% set avatar_fallback =
+        get_asset_url('../../images/testimonial-david.png') %}{% endif %} {% if
+        testimonial.author_name == 'Elena Rostova' %}{% set avatar_fallback =
+        get_asset_url('../../images/testimonial-elena.png') %}{% endif %}
+        <img
+          class="testimonials__avatar"
+          src="{{ testimonial.avatar.src|default(avatar_fallback)|escape_url }}"
+          alt="{{ testimonial.avatar.alt|default(testimonial.author_name)|escape_attr }}"
+          width="48"
+          height="48"
+        />
+        <div class="testimonials__author-copy">
+          <p class="testimonials__name">
+            {{ testimonial.author_name|escape_html }}
+          </p>
+          <p class="testimonials__role">{{ testimonial.role|escape_html }}</p>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>

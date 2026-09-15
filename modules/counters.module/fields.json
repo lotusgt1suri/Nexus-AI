@@ -1,0 +1,144 @@
+[ {
+  "id" : "counters",
+  "name" : "counters",
+  "label" : "Counters",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : "counters.value",
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "counters.value",
+    "name" : "value",
+    "label" : "Value",
+    "required" : true,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "99.9%"
+  }, {
+    "id" : "counters.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : true,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "CMS Performance Uptime"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : true,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "value" : "99.9%",
+    "description" : "CMS Performance Uptime"
+  }, {
+    "value" : "40+",
+    "description" : "Dynamic Built-in Modules"
+  }, {
+    "value" : "18k+",
+    "description" : "Active Website Deployments"
+  }, {
+    "value" : "150M+",
+    "description" : "Monthly API Transactions"
+  } ]
+}, {
+  "id" : "style",
+  "name" : "style",
+  "label" : "Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "style.background_color",
+    "name" : "background_color",
+    "label" : "Background color",
+    "required" : false,
+    "locked" : false,
+    "show_opacity" : true,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#F8FAFC",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "style.border_color",
+    "name" : "border_color",
+    "label" : "Border color",
+    "required" : false,
+    "locked" : false,
+    "show_opacity" : true,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#E2E8F0",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "style.value_color",
+    "name" : "value_color",
+    "label" : "Value color",
+    "required" : false,
+    "locked" : false,
+    "show_opacity" : true,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#FF5C35",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "style.description_color",
+    "name" : "description_color",
+    "label" : "Description color",
+    "required" : false,
+    "locked" : false,
+    "show_opacity" : true,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#0F172A",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "style.padding",
+    "name" : "padding",
+    "label" : "Padding",
+    "required" : false,
+    "locked" : false,
+    "type" : "spacing",
+    "display_width" : null,
+    "default" : {
+      "padding" : {
+        "top" : {
+          "value" : 80,
+          "units" : "px"
+        },
+        "right" : {
+          "value" : 80,
+          "units" : "px"
+        },
+        "bottom" : {
+          "value" : 80,
+          "units" : "px"
+        },
+        "left" : {
+          "value" : 80,
+          "units" : "px"
+        }
+      }
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+} ]

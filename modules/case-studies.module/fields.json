@@ -1,0 +1,224 @@
+[ {
+  "id" : "eyebrow",
+  "name" : "mini_title",
+  "label" : "Mini Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "REAL SOLUTIONS"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : true,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Proven results built on the Nexus theme"
+}, {
+  "id" : "header_link",
+  "name" : "header_link",
+  "label" : "Header link",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "header_link.text",
+    "name" : "text",
+    "label" : "Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "View All Case Studies"
+  }, {
+    "id" : "header_link.link",
+    "name" : "link",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : true,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "text" : "View All Case Studies",
+    "link" : {
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }
+  }
+}, {
+  "id" : "cards",
+  "name" : "cards",
+  "label" : "Case studies",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "cards.image",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : true,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "loading" : "lazy",
+      "alt" : "Case study image"
+    }
+  }, {
+    "id" : "cards.category",
+    "name" : "category",
+    "label" : "Category",
+    "required" : true,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "HEALTHCARE"
+  }, {
+    "id" : "cards.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : true,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Migrating 80 Regional Clinic Portals safely under strict HIPAA compliance rules"
+  }, {
+    "id" : "cards.summary",
+    "name" : "summary",
+    "label" : "Summary",
+    "required" : true,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "How CareAlliance saved $120k in development overhead by deploying a unified CMS architecture."
+  }, {
+    "id" : "cards.link",
+    "name" : "link",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : true,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "category" : "HEALTHCARE",
+    "title" : "Migrating 80 Regional Clinic Portals safely under strict HIPAA compliance rules",
+    "summary" : "How CareAlliance saved $120k in development overhead by deploying a unified CMS architecture."
+  }, {
+    "category" : "FINTECH SOLUTIONS",
+    "title" : "Increasing lead conversions by 55% during high volatility fiscal quarters",
+    "summary" : "Integrating safe customer widgets and real-time status signals on HubSpot landing blocks."
+  }, {
+    "category" : "HIGHER EDUCATION",
+    "title" : "Consolidating 14 campus websites into one clean manageable design blueprint",
+    "summary" : "How Summit University streamlined editorial access and preserved identity rules easily."
+  } ]
+}, {
+  "id" : "style",
+  "name" : "style",
+  "label" : "Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "style.card_background",
+    "name" : "card_background",
+    "label" : "Card background",
+    "required" : false,
+    "locked" : false,
+    "show_opacity" : true,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#FFFFFF",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "style.card_border",
+    "name" : "card_border",
+    "label" : "Card border",
+    "required" : false,
+    "locked" : false,
+    "show_opacity" : true,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#E2E8F0",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "style.card_radius",
+    "name" : "card_radius",
+    "label" : "Card radius",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "step" : 1,
+    "suffix" : "px",
+    "type" : "number",
+    "display_width" : null,
+    "default" : 12
+  }, {
+    "id" : "style.card_shadow",
+    "name" : "card_shadow",
+    "label" : "Card shadow",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "0 12px 20px rgba(0, 0, 0, 0.01)", "0 12px 20px rgba(0, 0, 0, 0.01)" ] ],
+    "multiple" : false,
+    "reordering_enabled" : false,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "0 12px 20px rgba(0, 0, 0, 0.01)"
+  } ],
+  "tab" : "STYLE",
+  "expanded" : true,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+} ]

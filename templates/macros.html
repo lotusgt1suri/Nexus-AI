@@ -1,0 +1,26 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+{% macro content_block( mini_title="", title="", description="", button_text="",
+button_url="", button_target="_self", class_name="", )%}
+
+<div class="content-block {{ class_name }}">
+  {% if mini_title %}
+  <p class="content-block__mini-title">{{ mini_title }}</p>
+  {% endif %} {% if title %}
+  <h2 class="content-block__title">{{ title }}</h2>
+  {% endif %} {% if description %}
+  <div class="content-block__description">{{ description }}</div>
+  {% endif %} {% if button_text and button_url %}
+  <div class="content-block__btn-wrap">
+    <a
+      href="{{ button_url }}"
+      class="content-block__btn"
+      target="{{ button_target }}"
+      >{{ button_text }}</a
+    >
+  </div>
+  {% endif %}
+</div>
+{% endmacro %}

@@ -1,0 +1,155 @@
+.case-studies {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.case-studies__header {
+  align-items: flex-end;
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+}
+
+.case-studies__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 640px;
+}
+
+.case-studies__mini-title,
+.case-studies__category {
+  color: #ff5c35;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.case-studies__mini-title {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.case-studies__heading {
+  color: #0f172a;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.case-studies__header-link {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #0f172a;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  text-decoration: none;
+}
+
+.case-studies__header-link:hover,
+.case-studies__header-link:focus {
+  border-color: #0f172a;
+}
+
+.case-studies__grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.case-studies__card {
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.case-studies__image-wrap {
+  height: 220px;
+  overflow: hidden;
+}
+
+.case-studies__image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.case-studies__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+}
+
+.case-studies__category {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.case-studies__title {
+  color: #0f172a;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.case-studies__summary {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.case-studies__link {
+  align-items: center;
+  color: #0f172a;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 700;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+  text-decoration: none;
+}
+
+.case-studies__link img {
+  display: block;
+  height: 14px;
+  width: 14px;
+}
+
+.case-studies__link:hover,
+.case-studies__link:focus {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .case-studies {
+    gap: 40px;
+    padding: 56px 24px;
+  }
+
+  .case-studies__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .case-studies__heading {
+    font-size: 32px;
+  }
+
+  .case-studies__grid {
+    grid-template-columns: 1fr;
+  }
+}

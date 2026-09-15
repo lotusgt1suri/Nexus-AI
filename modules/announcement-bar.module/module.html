@@ -1,0 +1,87 @@
+{% set href = module.link.url.href %}
+{% if module.link.url.type == "EMAIL_ADDRESS" %}
+	{% set href = "mailto:" + href %}
+{% endif %}
+{% set rel = [] %}
+{% if module.link.no_follow %}
+	{% do rel.append("nofollow") %}
+{% endif %}
+{% if module.link.open_in_new_tab %}
+	{% do rel.append("noopener") %}
+{% endif %}
+
+{% require_css %}
+	<style>
+		{% scope_css %}
+			{% if module.styles.padding %}
+				.announcement-bar {
+					{{ module.styles.padding.css }}
+				}
+			{% endif %}
+			{% if module.styles.alignment.horizontal_align %}
+				.announcement-bar__content {
+					{% if module.styles.alignment.horizontal_align == "LEFT" %}
+						justify-content: flex-start;
+						text-align: left;
+					{% elif module.styles.alignment.horizontal_align == "RIGHT" %}
+						justify-content: flex-end;
+						text-align: right;
+					{% else %}
+						justify-content: center;
+						text-align: center;
+					{% endif %}
+				}
+			{% endif %}
+			{% if module.styles.background.color %}
+				.announcement-bar {
+					background-color: rgba({{ module.styles.background.color|convert_rgb }}, {{ module.styles.background.opacity / 100 }});
+				}
+			{% endif %}
+			{% if module.styles.text.color %}
+				.announcement-bar,
+				.announcement-bar__eyebrow,
+				.announcement-bar__message,
+				.announcement-bar__link,
+				.announcement-bar__link:hover,
+				.announcement-bar__link:focus {
+					color: rgba({{ module.styles.text.color|convert_rgb }}, {{ module.styles.text.opacity / 100 }});
+				}
+			{% endif %}
+			@media (max-width: 767px) {
+				{% if module.styles.mobile_padding %}
+					.announcement-bar {
+						{{ module.styles.mobile_padding.css }}
+					}
+				{% endif %}
+				{% if module.styles.mobile_alignment.horizontal_align %}
+					.announcement-bar__content {
+						{% if module.styles.mobile_alignment.horizontal_align == "LEFT" %}
+							justify-content: flex-start;
+							text-align: left;
+						{% elif module.styles.mobile_alignment.horizontal_align == "RIGHT" %}
+							justify-content: flex-end;
+							text-align: right;
+						{% else %}
+							justify-content: center;
+							text-align: center;
+						{% endif %}
+					}
+				{% endif %}
+			}
+		{% end_scope_css %}
+	</style>
+{% end_require_css %}
+
+<aside class="announcement-bar" aria-label="Announcement">
+	<div class="announcement-bar__content">
+		<strong class="announcement-bar__eyebrow">{{ module.eyebrow|escape_html }}</strong>
+		<span class="announcement-bar__message">{{ module.message|escape_html }}</span>
+		{% if href %}
+			<a class="announcement-bar__link" href="{{ href|escape_url }}"
+				{% if module.link.open_in_new_tab %}target="_blank"{% endif %}
+				{% if rel %}rel="{{ rel|join(" ")|escape_attr }}"{% endif %}>
+				{{ module.link_text|escape_html }}
+			</a>
+		{% endif %}
+	</div>
+</aside>

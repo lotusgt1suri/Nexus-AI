@@ -1,0 +1,39 @@
+{% set home_href = module.breadcrumb.home_link.url.href %} {% require_css %}
+<style>
+  {% scope_css %}
+  .page-header {
+  	{% if module.styles.background.color %}background-color: rgba({{ module.styles.background.color|convert_rgb }}, {{ module.styles.background.opacity / 100 }});{% endif %}
+  	{{ module.styles.border.border.css }}
+  	{% if module.styles.padding.padding %}padding: {{ module.styles.padding.padding.top.value }}{{ module.styles.padding.padding.top.units }} {{ module.styles.padding.padding.right.value }}{{ module.styles.padding.padding.right.units }} {{ module.styles.padding.padding.bottom.value }}{{ module.styles.padding.padding.bottom.units }} {{ module.styles.padding.padding.left.value }}{{ module.styles.padding.padding.left.units }};{% endif %}
+  	{% if module.styles.gap %}gap: {{ module.styles.gap }}px;{% endif %}
+  }
+  .page-header__breadcrumb, .page-header__breadcrumb-separator { {% if module.breadcrumb_styles.text_color.color %}color: rgba({{ module.breadcrumb_styles.text_color.color|convert_rgb }}, {{ module.breadcrumb_styles.text_color.opacity / 100 }});{% endif %} }
+  .page-header__breadcrumb a { {% if module.breadcrumb_styles.text_color.color %}color: rgba({{ module.breadcrumb_styles.text_color.color|convert_rgb }}, {{ module.breadcrumb_styles.text_color.opacity / 100 }});{% endif %} }
+  .page-header__breadcrumb-current { {% if module.breadcrumb_styles.current_color.color %}color: rgba({{ module.breadcrumb_styles.current_color.color|convert_rgb }}, {{ module.breadcrumb_styles.current_color.opacity / 100 }});{% endif %} }
+  .page-header__heading { {% if module.heading_styles.text_color.color %}color: rgba({{ module.heading_styles.text_color.color|convert_rgb }}, {{ module.heading_styles.text_color.opacity / 100 }});{% endif %} }
+  .page-header__description { {% if module.description_styles.text_color.color %}color: rgba({{ module.description_styles.text_color.color|convert_rgb }}, {{ module.description_styles.text_color.opacity / 100 }});{% endif %} }
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section
+  class="page-header content-wrapper"
+  aria-labelledby="{{ name|escape_attr }}-heading"
+>
+  <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+    {% if home_href %}<a href="{{ home_href|escape_url }}"
+      >{{ module.breadcrumb.home_label|escape_html }}</a
+    >{% else %}<span>{{ module.breadcrumb.home_label|escape_html }}</span>{%
+    endif %}
+    <span class="page-header__breadcrumb-separator">/</span>
+    <span class="page-header__breadcrumb-current"
+      >{{ module.breadcrumb.current_label|escape_html }}</span
+    >
+  </nav>
+  <h1 class="page-header__heading" id="{{ name|escape_attr }}-heading">
+    {{ module.heading|escape_html }}
+  </h1>
+  {% if module.description %}
+  <p class="page-header__description">{{ module.description|escape_html }}</p>
+  {% endif %}
+</section>

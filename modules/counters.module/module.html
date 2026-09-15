@@ -1,0 +1,36 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+    .counters {
+      background-color: rgba({{ module.style.background_color.color|convert_rgb }}, {{ module.style.background_color.opacity / 100 }});
+      border-color: rgba({{ module.style.border_color.color|convert_rgb }}, {{ module.style.border_color.opacity / 100 }});
+      {{ module.style.padding.css }}
+    }
+
+    .counters__value {
+      color: rgba({{ module.style.value_color.color|convert_rgb }}, {{ module.style.value_color.opacity / 100 }});
+    }
+
+    .counters__description {
+      color: rgba({{ module.style.description_color.color|convert_rgb }}, {{ module.style.description_color.opacity / 100 }});
+    }
+
+    @media (max-width: 767px) {
+      .counters {
+        padding: 48px 24px;
+      }
+    }
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section class="counters" aria-label="Key statistics">
+  <div class="counters__inner content-wrapper">
+    {% for counter in module.counters %}
+    <div class="counters__item">
+      <p class="counters__value">{{ counter.value|escape_html }}</p>
+      <p class="counters__description">{{ counter.description|escape_html }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>

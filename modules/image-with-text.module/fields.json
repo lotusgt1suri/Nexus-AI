@@ -1,0 +1,256 @@
+[ {
+  "id" : "image",
+  "name" : "image",
+  "label" : "Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : true,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "loading" : "lazy",
+    "alt" : "Product workspace"
+  }
+}, {
+  "id" : "kicker",
+  "name" : "mini_title",
+  "label" : "Mini Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "ENTERPRISE-GRADE CMS"
+}, {
+  "id" : "heading",
+  "name" : "title",
+  "label" : "Title",
+  "required" : true,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Scale your visual presence without technical constraints"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Whether your pipeline requires basic product descriptions or high-scale dynamic charts, Nexus provides a flexible scaffolding system to support advanced deployments."
+}, {
+  "id" : "bullets",
+  "name" : "bullets",
+  "label" : "Bullet points",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "ef9e9926-9414-9a35-27ab-036d8ca857f4",
+    "name" : "icon",
+    "label" : "Icon",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/iocn-check-circle.svg",
+      "alt" : "iocn-check-circle",
+      "loading" : "lazy",
+      "width" : 20,
+      "height" : 20,
+      "max_width" : 20,
+      "max_height" : 20
+    }
+  }, {
+    "id" : "9b6b08f6-2884-14c2-2482-4c3fff862f8f",
+    "name" : "list_item",
+    "label" : "List Item",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 3,
+      "max" : null,
+      "sorting_label_field" : "bullets.text",
+      "default" : 3
+    },
+    "children" : [ {
+      "id" : "bullets.text",
+      "name" : "text",
+      "label" : "Text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Complete control over custom header structures and sub-levels"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ {
+      "text" : "Complete control over custom header structures and sub-levels"
+    }, {
+      "text" : "Complete control over custom header structures and sub-levels"
+    }, {
+      "text" : "Complete control over custom header structures and sub-levels"
+    } ]
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "icon" : {
+      "size_type" : "auto",
+      "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/iocn-check-circle.svg",
+      "alt" : "iocn-check-circle",
+      "loading" : "lazy",
+      "width" : 20,
+      "height" : 20,
+      "max_width" : 20,
+      "max_height" : 20
+    },
+    "list_item" : [ {
+      "text" : "Complete control over custom header structures and sub-levels"
+    }, {
+      "text" : "Complete control over custom header structures and sub-levels"
+    }, {
+      "text" : "Complete control over custom header structures and sub-levels"
+    } ]
+  }
+}, {
+  "id" : "button",
+  "name" : "button",
+  "label" : "Button",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "button.text",
+    "name" : "text",
+    "label" : "Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Read Full Specifications"
+  }, {
+    "id" : "button.link",
+    "name" : "link",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "CALL_TO_ACTION" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : true,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "text" : "Read Full Specifications",
+    "link" : {
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }
+  }
+}, {
+  "id" : "style",
+  "name" : "style",
+  "label" : "Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "0fe39516-a855-3014-e986-1cfe0bac65ed",
+    "name" : "switch_column",
+    "label" : "Switch Column",
+    "required" : false,
+    "locked" : false,
+    "display" : "toggle",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : false
+  }, {
+    "id" : "ac3db1ee-1fbc-3bbb-adda-e82835efa1d1",
+    "name" : "mini_title",
+    "label" : "Mini Title",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "5095a5e9-3ddc-da41-668c-8b9e0c42f8ec",
+      "name" : "font_size",
+      "label" : "Font Size",
+      "required" : false,
+      "locked" : false,
+      "display" : "text",
+      "step" : 1,
+      "suffix" : "px",
+      "type" : "number",
+      "display_width" : null,
+      "default" : 14
+    }, {
+      "id" : "50ef2f75-132c-2fb1-7fc3-f826fd41e9c0",
+      "name" : "color",
+      "label" : "Color",
+      "required" : false,
+      "locked" : false,
+      "show_opacity" : true,
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : "#FF5C35",
+        "opacity" : 100
+      }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "font_size" : 14,
+      "color" : {
+        "color" : "#FF5C35",
+        "opacity" : 100
+      }
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "switch_column" : false,
+    "mini_title" : {
+      "font_size" : 14,
+      "color" : {
+        "color" : "#FF5C35",
+        "opacity" : 100
+      }
+    }
+  }
+} ]

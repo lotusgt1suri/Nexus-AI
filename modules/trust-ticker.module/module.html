@@ -1,0 +1,66 @@
+{% require_css %}
+<style>
+  {% scope_css %}
+    .trust-ticker {
+  		background-color: rgba({{ module.style.background_color.color|convert_rgb }},{{ module.style.background_color.opacity / 100 }});
+  		padding-top: {{ module.style.padding.desktop.padding.top.value }}px;
+  		padding-bottom: {{ module.style.padding.desktop.padding.bottom.value }}px;
+  		border-block: {{ module.style.border.thickness ~ "px" }} {{ module.style.border.style }} rgba({{ module.style.border.color.color|convert_rgb }},{{ module.style.border.color.opacity / 100 }});
+  	}
+
+  .trust-ticker__eyebrow {
+  	font-size: {{ module.style.headline.font_size ~ "px" }};
+  	color: rgba({{ module.style.headline.color.color|convert_rgb }},{{ module.style.headline.color.opacity / 100 }});
+  }
+  {% end_scope_css %}
+</style>
+{% end_require_css %}
+
+<section
+  class="trust-ticker"
+  aria-label="{{ module.headline|default('Trusted by teams that move fast')|escape_attr }}"
+>
+  {% if module.headline %}
+  <div class="trust-ticker__header">
+    <p class="trust-ticker__eyebrow">{{ module.headline|escape_html }}</p>
+  </div>
+  {% endif %}
+
+  <div class="trust-ticker__track" aria-live="polite">
+    {% for item in module.items %}
+    <div class="trust-ticker__item">
+      {% if item.icon.src %}
+      <img
+        class="trust-ticker__icon"
+        src="{{ item.icon.src|escape_url }}"
+        alt=""
+        loading="lazy"
+        width="20"
+        height="20"
+      />
+      {% endif %} {% if item.value %}
+      <span class="trust-ticker__value">{{ item.value|escape_html }}</span>
+      {% endif %} {% if item.caption %}
+      <span class="trust-ticker__label">{{ item.caption|escape_html }}</span>
+      {% endif %}
+    </div>
+    {% endfor %} {% for item in module.items %}
+    <div class="trust-ticker__item" aria-hidden="true">
+      {% if item.icon.src %}
+      <img
+        class="trust-ticker__icon"
+        src="{{ item.icon.src|escape_url }}"
+        alt=""
+        loading="lazy"
+        width="20"
+        height="20"
+      />
+      {% endif %} {% if item.value %}
+      <span class="trust-ticker__value">{{ item.value|escape_html }}</span>
+      {% endif %} {% if item.caption %}
+      <span class="trust-ticker__label">{{ item.caption|escape_html }}</span>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
