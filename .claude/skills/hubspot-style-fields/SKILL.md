@@ -53,6 +53,35 @@ Generates a properly grouped, Figma-accurate `fields.json` style block for a Hub
    ```
    Because the field default can't carry a real color from Figma, put the actual Figma-derived border (`border: <width> <style> <color>;`) as a static fallback in `module.css` on the same selector — that's what renders until someone edits the field in the Style tab. Mention this limitation to the user when reporting output.
    If an existing module has a `color`-only field standing in for a border, treat it as a bug to fix (per the same core mechanism as rule 1), not a pattern to keep — replace it with the `border` field type above and update the template accordingly.
+6. **Any drop shadow must always be built as a group of six individual primitive fields — there is no native `boxshadow` composite type, despite how it looks in the Style tab UI.** Verified against `case-studies.module` and `testimonials.module` in this project (and against HubSpot's own default "Language Switcher" module). Exact schema — reuse these field names verbatim:
+   ```json
+   {
+     "id": "<parent>.shadow",
+     "name": "shadow",
+     "label": "Shadow",
+     "required": false,
+     "locked": false,
+     "children": [
+       { "id": "<parent>.shadow.enabled", "name": "enabled", "label": "Enable shadow", "type": "boolean", "required": false, "locked": false, "display_width": null, "default": true },
+       { "id": "<parent>.shadow.offset_x", "name": "offset_x", "label": "Offset X", "type": "number", "display": "text", "min": -100, "max": 100, "step": 1, "required": false, "locked": false, "display_width": null, "default": 0 },
+       { "id": "<parent>.shadow.offset_y", "name": "offset_y", "label": "Offset Y", "type": "number", "display": "text", "min": -100, "max": 100, "step": 1, "required": false, "locked": false, "display_width": null, "default": 0 },
+       { "id": "<parent>.shadow.blur_radius", "name": "blur_radius", "label": "Blur radius", "type": "number", "display": "text", "min": 0, "max": 100, "step": 1, "required": false, "locked": false, "display_width": null, "default": 0 },
+       { "id": "<parent>.shadow.spread_radius", "name": "spread_radius", "label": "Spread radius", "type": "number", "display": "text", "min": -100, "max": 100, "step": 1, "required": false, "locked": false, "display_width": null, "default": 0 },
+       { "id": "<parent>.shadow.color", "name": "color", "label": "Color", "type": "color", "required": false, "locked": false, "display_width": null, "default": { "color": "#000000", "opacity": 10 } },
+       { "id": "<parent>.shadow.inset", "name": "inset", "label": "Inset", "type": "boolean", "required": false, "locked": false, "display_width": null, "default": false }
+     ],
+     "tab": "STYLE",
+     "expanded": false,
+     "group_occurrence_meta": null,
+     "type": "group",
+     "display_width": null
+   }
+   ```
+   Set each numeric/color default from the real Figma shadow value (`offset-x offset-y blur spread rgba(color)`), not the placeholders above. In HubL, build the `box-shadow` declaration manually — there's no `.css` accessor here since it's not a real composite field:
+   ```
+   {% if module.<parent>.shadow.enabled %}box-shadow: {% if module.<parent>.shadow.inset %}inset {% endif %}{{ module.<parent>.shadow.offset_x }}px {{ module.<parent>.shadow.offset_y }}px {{ module.<parent>.shadow.blur_radius }}px {{ module.<parent>.shadow.spread_radius }}px rgba({{ module.<parent>.shadow.color.color|convert_rgb }}, {{ module.<parent>.shadow.color.opacity / 100 }});{% endif %}
+   ```
+   If an existing module has a `choice` dropdown with one hardcoded shadow value standing in for this (a common workaround), replace it with the real editable group above rather than leaving it as a fixed preset.
 
 ## Workflow
 
@@ -75,7 +104,7 @@ Never invent a custom field type. Use this mapping as the default; if something 
 | Padding, margin, gap (auto-layout) | `spacing` | |
 | Corner radius | `number` (`display: "text"` or `"slider"`) or `borderradius` | use `borderradius` if independent corners are needed |
 | Stroke / border | `border` | must include width + style + color together — see rule 5; never a lone `color` field |
-| Drop shadow / blur effect | `boxshadow` | |
+| Drop shadow / blur effect | **no composite type — build from primitives** | **`"boxshadow"` is NOT a real HubSpot field type.** Two attempts at guessing a composite schema for it were both rejected by the API with a confusing cascading error (`Field styles.card.null is missing a label`, `'unknown' is not a valid field type`) — that error signature means the field type name itself is invalid, not just the default shape. Confirmed via HubSpot's own default "Language Switcher" module (fetched from `developers.hubspot.com/docs/cms/reference/modules/default-module-versioning`): shadow is built as a `type: "group"` containing individual primitive fields. See the exact schema below — use it verbatim, don't reinvent it. |
 | Font family/size/weight/line-height | `font` | |
 | Text/flex alignment | `alignment` | set `alignment_direction` |
 | Width constraints | `number` with `display: "slider"` and `suffix: "px"` | |
@@ -107,6 +136,14 @@ Rules while building this:
 - Preserve the array order the user cares about — group order in the JSON is the order sections appear in the editor.
 - If merging into an *existing* module's fields.json, read the current file first, keep existing content fields untouched, and only add/reorganize the style group. Warn the user before restructuring an already-published module's field hierarchy — reordering or renaming existing fields can cause existing module instances to lose saved data (this is a real HubSpot constraint, not just a style nicety).
 
+### Step 3.5 — Validate against the real API before finishing
+
+For any field type whose default-value schema isn't already proven working elsewhere in this project (checked via `grep -rl '"type": "<type>"' modules/`), don't just trust a best-guess schema — run `hs cms upload <module-folder> Nexus/modules/<module-folder>` and read the response. HubSpot's API validates field defaults server-side and will reject a malformed one, sometimes with a confusing cascading error that names an unrelated field (e.g. a bad `boxshadow` default surfaced as `Field styles.card.null is missing a label`). If the upload fails:
+1. Read the actual error, not just the field you suspect.
+2. If a working example of that field type exists elsewhere in this project, copy its exact schema (this is how the `border` schema in rule 5 was fixed).
+3. If no working example exists and the fix isn't obvious, remove the field rather than iterating blindly — fall back to a fixed value in `module.css` and flag it per Step 4, rather than leaving a broken upload in place.
+4. Re-run the upload to confirm the fix actually works before reporting success to the user.
+
 ### Step 4 — Report output
 
 After writing/updating the fields.json:
@@ -131,3 +168,4 @@ This same flow applies per-module — run Steps 1–4 fresh for each module/comp
 - [ ] Every `default` value traces back to a real Figma value, not a guess
 - [ ] Any unmapped Figma property was flagged, not silently dropped
 - [ ] Every border is a single `"type": "border"` field exposing width + style + color — no border is represented by a lone `color` field
+- [ ] Every shadow is the six-field primitive group (rule 6) — never a `"boxshadow"` type (doesn't exist) and never a `choice` dropdown standing in for it

@@ -94,4 +94,216 @@
     "author_name" : "Elena Rostova",
     "role" : "Design Director, FinLeap International"
   } ]
+}, {
+  "id" : "styles",
+  "name" : "styles",
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "styles.card",
+    "name" : "card",
+    "label" : "Card",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "styles.card.background",
+      "name" : "background",
+      "label" : "Background color",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : "#ffffff",
+        "opacity" : 100
+      }
+    }, {
+      "id" : "styles.card.border",
+      "name" : "border",
+      "label" : "Border",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "styles.card.border.border",
+        "name" : "border",
+        "label" : "Border",
+        "required" : false,
+        "locked" : false,
+        "allow_custom_border_sides" : false,
+        "type" : "border",
+        "display_width" : null,
+        "default" : { }
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "group_occurrence_meta" : null,
+      "type" : "group",
+      "display_width" : null
+    }, {
+      "id" : "styles.card.radius",
+      "name" : "radius",
+      "label" : "Corner radius",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 0,
+      "max" : 48,
+      "step" : 1,
+      "suffix" : "px",
+      "type" : "number",
+      "display_width" : null,
+      "default" : 12
+    }, {
+      "id" : "styles.card.shadow",
+      "name" : "shadow",
+      "label" : "Shadow",
+      "required" : false,
+      "locked" : false,
+      "children" : [ {
+        "id" : "styles.card.shadow.enabled",
+        "name" : "enabled",
+        "label" : "Enable shadow",
+        "required" : false,
+        "locked" : false,
+        "type" : "boolean",
+        "display_width" : null,
+        "default" : true
+      }, {
+        "id" : "styles.card.shadow.offset_x",
+        "name" : "offset_x",
+        "label" : "Offset X",
+        "required" : false,
+        "locked" : false,
+        "type" : "number",
+        "display" : "text",
+        "min" : -100,
+        "max" : 100,
+        "step" : 1,
+        "display_width" : null,
+        "default" : 0
+      }, {
+        "id" : "styles.card.shadow.offset_y",
+        "name" : "offset_y",
+        "label" : "Offset Y",
+        "required" : false,
+        "locked" : false,
+        "type" : "number",
+        "display" : "text",
+        "min" : -100,
+        "max" : 100,
+        "step" : 1,
+        "display_width" : null,
+        "default" : 8
+      }, {
+        "id" : "styles.card.shadow.blur_radius",
+        "name" : "blur_radius",
+        "label" : "Blur radius",
+        "required" : false,
+        "locked" : false,
+        "type" : "number",
+        "display" : "text",
+        "min" : 0,
+        "max" : 100,
+        "step" : 1,
+        "display_width" : null,
+        "default" : 12
+      }, {
+        "id" : "styles.card.shadow.spread_radius",
+        "name" : "spread_radius",
+        "label" : "Spread radius",
+        "required" : false,
+        "locked" : false,
+        "type" : "number",
+        "display" : "text",
+        "min" : -100,
+        "max" : 100,
+        "step" : 1,
+        "display_width" : null,
+        "default" : 0
+      }, {
+        "id" : "styles.card.shadow.color",
+        "name" : "color",
+        "label" : "Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "display_width" : null,
+        "default" : {
+          "color" : "#000000",
+          "opacity" : 2
+        }
+      }, {
+        "id" : "styles.card.shadow.inset",
+        "name" : "inset",
+        "label" : "Inset",
+        "required" : false,
+        "locked" : false,
+        "type" : "boolean",
+        "display_width" : null,
+        "default" : false
+      } ],
+      "tab" : "STYLE",
+      "expanded" : false,
+      "group_occurrence_meta" : null,
+      "type" : "group",
+      "display_width" : null
+    }, {
+      "id" : "styles.card.padding",
+      "name" : "padding",
+      "label" : "Padding",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : { "value" : 40, "units" : "px" },
+          "right" : { "value" : 40, "units" : "px" },
+          "bottom" : { "value" : 40, "units" : "px" },
+          "left" : { "value" : 40, "units" : "px" }
+        }
+      }
+    }, {
+      "id" : "styles.card.mobile_padding",
+      "name" : "mobile_padding",
+      "label" : "Mobile padding",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : {
+        "padding" : {
+          "top" : { "value" : 28, "units" : "px" },
+          "right" : { "value" : 28, "units" : "px" },
+          "bottom" : { "value" : 28, "units" : "px" },
+          "left" : { "value" : 28, "units" : "px" }
+        }
+      }
+    }, {
+      "id" : "styles.card.gap",
+      "name" : "gap",
+      "label" : "Content gap",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 0,
+      "max" : 60,
+      "step" : 1,
+      "suffix" : "px",
+      "type" : "number",
+      "display_width" : null,
+      "default" : 28
+    } ],
+    "tab" : "STYLE",
+    "expanded" : true,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  } ],
+  "tab" : "STYLE",
+  "expanded" : true,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
 } ]

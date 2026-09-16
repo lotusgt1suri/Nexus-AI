@@ -99,3 +99,4 @@ Each module follows the standard HubSpot module structure (`meta.json`, `fields.
 
 - New style fields should follow the pattern documented in [`.claude/skills/hubspot-style-fields/SKILL.md`](.claude/skills/hubspot-style-fields/SKILL.md): style properties are grouped per visual component under the Style tab, the module's outermost wrapper group is always named `styles`, and borders use HubSpot's native `border` field type (width + style + color together), never a plain color field.
 - `.vscode/settings.json` maps `.html`/`.css` files to HubL-aware language modes — install the HubSpot **HubL** VSCode extension so templating syntax inside `<style>` blocks isn't flagged as invalid CSS.
+

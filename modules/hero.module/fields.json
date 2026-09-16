@@ -358,6 +358,19 @@
       "type" : "number",
       "display_width" : null,
       "default" : 900
+    }, {
+      "id" : "0ff72099-9059-479c-86ab-4e25cc05e5ef",
+      "name" : "heading_color",
+      "label" : "Heading Color",
+      "required" : false,
+      "locked" : false,
+      "show_opacity" : true,
+      "type" : "color",
+      "display_width" : null,
+      "default" : {
+        "color" : "#0F172A",
+        "opacity" : 100
+      }
     } ],
     "tab" : "STYLE",
     "expanded" : false,
@@ -365,7 +378,39 @@
     "type" : "group",
     "display_width" : null,
     "default" : {
-      "max_width" : 900
+      "max_width" : 900,
+      "heading_color" : {
+        "color" : "#0F172A",
+        "opacity" : 100
+      }
+    }
+  }, {
+    "id" : "508958c3-9fee-40de-808a-3c44b2073411",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "22901c41-458f-4745-b705-d087cde91748",
+      "name" : "corner",
+      "label" : "Corner Radius",
+      "required" : false,
+      "locked" : false,
+      "display" : "text",
+      "min" : 0,
+      "step" : 1,
+      "suffix" : "px",
+      "type" : "number",
+      "display_width" : null,
+      "default" : 0
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "corner" : 0
     }
   }, {
     "id" : "ff237c57-b3aa-c65b-1923-10d4afd11905",
@@ -589,7 +634,14 @@
       }
     },
     "content" : {
-      "max_width" : 900
+      "max_width" : 900,
+      "heading_color" : {
+        "color" : "#0F172A",
+        "opacity" : 100
+      }
+    },
+    "image" : {
+      "corner" : 0
     },
     "hero_badge" : {
       "background_color" : {
