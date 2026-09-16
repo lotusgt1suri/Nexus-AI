@@ -5,6 +5,9 @@
 {% require_css %}
 <style>
 	{% scope_css %}
+	.image-with-text__image {
+		border-radius: {{ module.style.image.corner ~ "px" }};
+	}
 	{% if module.style.switch_column %}
 	.image-with-text__content {
 		order: -1;
@@ -64,7 +67,7 @@
 			</ul>
 
 			{% if button_href and module.button.text %}
-			<a class="image-with-text__button button" href="{{ button_href|escape_url }}"
+			<a class="image-with-text__button button button--tertiary" href="{{ button_href|escape_url }}"
 				 {% if module.button.link.open_in_new_tab %}
 				 target="_blank"
 				 rel="noopener"

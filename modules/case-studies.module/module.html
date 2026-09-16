@@ -3,10 +3,14 @@ require_css %}
 <style>
   {% scope_css %}
   .case-studies__card {
-    background-color: rgba({{ module.style.card_background.color|convert_rgb }}, {{ module.style.card_background.opacity / 100 }});
-    border-color: rgba({{ module.style.card_border.color|convert_rgb }}, {{ module.style.card_border.opacity / 100 }});
-    border-radius: {{ module.style.card_radius }}px;
-    box-shadow: {{ module.style.card_shadow }};
+    {% if module.styles.card.background.color %}background-color: rgba({{ module.styles.card.background.color|convert_rgb }}, {{ module.styles.card.background.opacity / 100 }});{% endif %}
+    {{ module.styles.card.border.border.css }}
+    {% if module.styles.card.radius >= 0 %}border-radius: {{ module.styles.card.radius }}px;{% endif %}
+    {% if module.styles.card.shadow.enabled %}box-shadow: {% if module.styles.card.shadow.inset %}inset {% endif %}{{ module.styles.card.shadow.offset_x }}px {{ module.styles.card.shadow.offset_y }}px {{ module.styles.card.shadow.blur_radius }}px {{ module.styles.card.shadow.spread_radius }}px rgba({{ module.styles.card.shadow.color.color|convert_rgb }}, {{ module.styles.card.shadow.color.opacity / 100 }});{% endif %}
+  }
+  .case-studies__content {
+    {% if module.styles.card.padding.padding %}padding: {{ module.styles.card.padding.padding.top.value }}{{ module.styles.card.padding.padding.top.units }} {{ module.styles.card.padding.padding.right.value }}{{ module.styles.card.padding.padding.right.units }} {{ module.styles.card.padding.padding.bottom.value }}{{ module.styles.card.padding.padding.bottom.units }} {{ module.styles.card.padding.padding.left.value }}{{ module.styles.card.padding.padding.left.units }};{% endif %}
+    {% if module.styles.card.gap %}gap: {{ module.styles.card.gap }}px;{% endif %}
   }
   {% end_scope_css %}
 </style>

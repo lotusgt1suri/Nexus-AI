@@ -237,6 +237,34 @@
         "opacity" : 100
       }
     }
+  }, {
+    "id" : "ccaf767b-b827-407b-b20b-530d717d4b25",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "008d1a70-22bc-4262-bb1a-5cbb29084f4a",
+      "name" : "corner",
+      "label" : "Corner Radius",
+      "required" : false,
+      "locked" : false,
+      "display" : "text",
+      "min" : 0,
+      "step" : 1,
+      "suffix" : "px",
+      "type" : "number",
+      "display_width" : null,
+      "default" : 0
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "corner" : 0
+    }
   } ],
   "tab" : "STYLE",
   "expanded" : false,
@@ -251,6 +279,9 @@
         "color" : "#FF5C35",
         "opacity" : 100
       }
+    },
+    "image" : {
+      "corner" : 0
     }
   }
 } ]

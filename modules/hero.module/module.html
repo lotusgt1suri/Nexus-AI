@@ -16,7 +16,15 @@ secondary_href = "mailto:" + secondary_href %} {% endif %}
 		.hero__content {
 			max-width: {{ module.style.content.max_width ~ "px" }};
 		}
-		
+
+		.hero__heading {
+			color: rgba({{ module.style.content.heading_color.color|convert_rgb }},{{ module.style.content.heading_color.opacity / 100 }});
+		}
+
+		.hero__image {
+			border-radius: {{ module.style.image.corner ~ "px" }};
+		}
+
 		.hero__kicker {
 			background-color: rgba({{ module.style.hero_badge.background_color.color|convert_rgb }},{{ module.style.hero_badge.background_color.opacity / 100 }});
 			color: rgba({{ module.style.hero_badge.color.color|convert_rgb }},{{ module.style.hero_badge.color.opacity /100 }});
@@ -47,7 +55,7 @@ secondary_href = "mailto:" + secondary_href %} {% endif %}
         href="{{ primary_href|escape_url }}"
         >{{ module.primary_button.text|escape_html }}</a
       >{% endif %} {% if secondary_href %}<a
-        class="button hero__button hero__button--secondary"
+        class="button button--secondary hero__button hero__button--secondary"
         href="{{ secondary_href|escape_url }}"
         >{{ module.secondary_button.text|escape_html }}</a
       >{% endif %}
@@ -66,6 +74,7 @@ secondary_href = "mailto:" + secondary_href %} {% endif %}
     auto;"' %} {% endif %} {% set loadingAttr = module.image.loading !=
     'disabled' ? 'loading="{{ module.image.loading|escape_attr }}"' : '' %}
     <img
+      class="hero__image"
       src="{{ module.image.src|escape_url }}"
       alt="{{ module.image.alt|escape_attr }}"
       {{
