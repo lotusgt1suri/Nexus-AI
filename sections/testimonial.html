@@ -1,0 +1,64 @@
+<!--
+  templateType: section
+  label: Testimonial
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/testimonial.png
+  description: ""
+-->
+{% dnd_section %}
+  {% dnd_column
+    offset=0,
+    width=12
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="/Nexus/modules/testimonials",
+        offset=0,
+        width=12,
+        testimonials=[ {
+          "author_name" : "Sarah Jenkins",
+          "avatar" : {
+            "alt" : "avatar-sarah",
+            "height" : 48,
+            "loading" : "lazy",
+            "max_height" : 48,
+            "max_width" : 48,
+            "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/avatar-sarah.png",
+            "width" : 48
+          },
+          "quote" : "Nexus transformed how our design systems are maintained. What used to take two weeks of alignment takes five minutes inside the global setting modules.",
+          "role" : "Head of Web at CloudScale"
+        }, {
+          "author_name" : "David Chen",
+          "avatar" : {
+            "alt" : "avatar-david",
+            "height" : 48,
+            "loading" : "lazy",
+            "max_height" : 48,
+            "max_width" : 48,
+            "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/avatar-david.png",
+            "width" : 48
+          },
+          "quote" : "The load speeds are incredible. We migrated 400 pages to the HubSpot CMS using the Nexus template layout and saw a 35% jump in our search conversions.",
+          "role" : "VP Marketing, Meridian Growth"
+        }, {
+          "author_name" : "Elena Rostova",
+          "avatar" : {
+            "alt" : "avatar-elena",
+            "height" : 48,
+            "loading" : "lazy",
+            "max_height" : 48,
+            "max_width" : 48,
+            "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/avatar-elena.png",
+            "width" : 48
+          },
+          "quote" : "Our designers build blocks without touching code. The design guidelines remain strictly locked, preventing layout issues across foreign markets.",
+          "role" : "Design Director, FinLeap International"
+        } ],
+        eyebrow="SUCCESS STORIES",
+        heading="What corporate marketing leads say"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

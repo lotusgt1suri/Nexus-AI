@@ -63,9 +63,9 @@ require_css %}
         <p class="case-studies__summary">{{ card.summary|escape_html }}</p>
         <a
           class="case-studies__link"
-          href="{{ card.link.url.href|default('#')|escape_url }}"
+          href="{{ card.cta.link.url.href|default('#')|escape_url }}"
         >
-          <span>Read Case Study</span>
+          <span>{{ card.cta.text|default('Read Case Study')|escape_html }}</span>
           <img
             src="{{ get_asset_url('../../images/case-study-arrow.svg')|escape_url }}"
             alt=""

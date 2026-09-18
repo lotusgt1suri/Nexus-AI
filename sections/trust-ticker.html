@@ -1,0 +1,61 @@
+<!--
+  templateType: section
+  label: Trust ticker
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/trust-ticker.png
+  description: "A repeating pill-badge ticker beneath a "trusted by" kicker, displaying key trust metrics (users onboarded, uptime, support, security, rating)."
+-->
+{% dnd_section
+  padding={
+    "default" : {
+      "bottom" : "0px",
+      "left" : "0px",
+      "right" : "0px",
+      "top" : "0px"
+    }
+  },
+  full_width=true
+%}
+  {% dnd_column
+    offset=0,
+    width=12,
+    padding={
+      "default" : {
+        "left" : "0px",
+        "right" : "0px"
+      }
+    }
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="/Nexus/modules/trust-ticker",
+        offset=0,
+        width=12,
+        headline="Trusted by industry-leading innovators worldwide",
+        style={
+          "background_color" : {
+            "color" : "#F8FAFC",
+            "opacity" : 100
+          }
+        },
+        items=[ {
+          "caption" : "Customer rating",
+          "value" : "4.9/5"
+        }, {
+          "caption" : "Users onboarded",
+          "value" : "35k+"
+        }, {
+          "caption" : "Uptime",
+          "value" : "99.9%"
+        }, {
+          "caption" : "Support",
+          "value" : "24/7"
+        }, {
+          "caption" : "Security",
+          "value" : "SOC 2"
+        } ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

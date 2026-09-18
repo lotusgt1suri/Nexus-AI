@@ -1,0 +1,63 @@
+<!--
+  templateType: section
+  label: Grid col
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/grid-col.png
+  description: ""
+-->
+{% dnd_section %}
+  {% dnd_column
+    offset=0,
+    width=12
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="/Nexus/modules/grid-col",
+        offset=0,
+        width=12,
+        card=[ {
+          "description" : "<span>Build layouts block-by-block with 40+ reusable theme elements tailored specifically for corporate marketing pages.</span>",
+          "image" : {
+            "alt" : "icon-architecture",
+            "height" : 24,
+            "loading" : "lazy",
+            "max_height" : 24,
+            "max_width" : 24,
+            "size_type" : "auto",
+            "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/icon-architecture.svg",
+            "width" : 24
+          },
+          "title" : "Modular Architecture"
+        }, {
+          "description" : "<span>Zero bloated scripts. Lightweight construction guarantees maximum performance and high Core Web Vitals marks.<br></span>",
+          "image" : {
+            "alt" : "icon-zap",
+            "height" : 24,
+            "loading" : "lazy",
+            "max_height" : 24,
+            "max_width" : 24,
+            "size_type" : "auto",
+            "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/icon-zap.svg",
+            "width" : 24
+          },
+          "title" : "Pixel-Perfect Speed"
+        }, {
+          "description" : "<span>Modify typography, spacing rules, and color palettes globally across all sub-pages with one single editor click.</span>",
+          "image" : {
+            "alt" : "icon-settings",
+            "height" : 24,
+            "loading" : "lazy",
+            "max_height" : 24,
+            "max_width" : 24,
+            "size_type" : "auto",
+            "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/icon-settings.svg",
+            "width" : 24
+          },
+          "title" : "Universal Settings"
+        } ],
+        select_grid_col="3"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

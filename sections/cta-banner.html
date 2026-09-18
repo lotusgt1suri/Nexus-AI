@@ -1,0 +1,112 @@
+<!--
+  templateType: section
+  label: CTA Banner
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/cta-banner.png
+  description: ""
+-->
+{% dnd_section
+  background_color="rgba(11, 15, 25, 1)",
+  full_width=false
+%}
+  {% dnd_column
+    offset=0,
+    width=12
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="/Nexus/modules/hero",
+        offset=0,
+        width=12,
+        description="Unlock the power of dynamic modules, optimized clean-code, and modular structure specifically designed for growing corporate & startup teams.",
+        heading="Build high-converting HubSpot pages faster than ever before",
+        image={
+          "src" : ""
+        },
+        kicker="TAKE CONTROL OF YOUR CMS",
+        primary_button={
+          "link" : {
+            "url" : {
+              "href" : "#",
+              "type" : "EXTERNAL"
+            }
+          },
+          "text" : "Explore Theme Options"
+        },
+        secondary_button={
+          "link" : {
+            "url" : {
+              "href" : "#",
+              "type" : "EXTERNAL"
+            }
+          },
+          "text" : "Speak to an Architect"
+        },
+        style={
+          "container" : {
+            "background_color" : {
+              "color" : "#FFFFFF",
+              "opacity" : 0
+            }
+          },
+          "content" : {
+            "heading_color" : {
+              "color" : "#FFFFFF",
+              "opacity" : 100
+            },
+            "max_width" : 800
+          },
+          "hero_badge" : {
+            "background_color" : {
+              "color" : "#F8FAFC",
+              "opacity" : 0
+            },
+            "border" : {
+              "bottom" : {
+                "color" : "#FF5C35",
+                "opacity" : 100,
+                "style" : "solid",
+                "width" : {
+                  "units" : "px",
+                  "value" : 1
+                }
+              },
+              "left" : {
+                "color" : "#FF5C35",
+                "opacity" : 100,
+                "style" : "solid",
+                "width" : {
+                  "units" : "px",
+                  "value" : 1
+                }
+              },
+              "right" : {
+                "color" : "#FF5C35",
+                "opacity" : 100,
+                "style" : "solid",
+                "width" : {
+                  "units" : "px",
+                  "value" : 1
+                }
+              },
+              "top" : {
+                "color" : "#FF5C35",
+                "opacity" : 100,
+                "style" : "solid",
+                "width" : {
+                  "units" : "px",
+                  "value" : 1
+                }
+              }
+            },
+            "color" : {
+              "color" : "#FF5C35",
+              "opacity" : 100
+            }
+          }
+        }
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

@@ -3,39 +3,56 @@
   label: Hero banner
   isAvailableForNewContent: true
   screenshotPath: ../images/section-previews/hero-banner.png
-  description: "Full size background image section separated in two columns. Left column has heading and text and right column has a form."
+  description: "A full-width hero section with a kicker, headline, description, image, and two CTAs introducing the Nexus design system."
 -->
 {% dnd_section
-  background_color={{ context.background_color or "#f8fafc" }},
-  vertical_alignment="MIDDLE"
+  full_width=false
 %}
-  {% dnd_module
-    path="@hubspot/linked_image",
-    img={
-      "alt": context.image_alt or "Stock placeholder image with grayscale geometrical mountain landscape",
-      "loading": context.image_loading or "disabled",
-      "max_height": context.image_height or 451,
-      "max_width": context.image_width or 605,
-      "size_type": "auto_custom_max",
-      "src": context.image or get_asset_url("../images/grayscale-mountain.png")
-    },
-    offset=0,
-    width=6
-  %}
-  {% end_dnd_module %}
   {% dnd_column
-    offset=6,
-    width=6
+    offset=0,
+    width=12
   %}
     {% dnd_row %}
       {% dnd_module
-        path="@hubspot/rich_text"
-        html={{ context.content or "<h1>This is your main headline.</h1><p>Use this space to tell everyone about what you have to offer.</p>" }}
+        path="/Nexus/modules/hero",
+        offset=0,
+        width=12,
+        description="Nexus gives your marketing team total creative control over structure, templates, and dynamic modules while staying strictly inside your brand guidelines.",
+        heading="One unified design system for all your HubSpot websites",
+        image={
+          "alt" : "hero",
+          "height" : 520,
+          "loading" : "lazy",
+          "max_height" : 520,
+          "max_width" : 1120,
+          "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/hero.jpg",
+          "width" : 1120
+        },
+        kicker="THE SYSTEM FOR MODERN GROWTH",
+        primary_button={
+          "link" : {
+            "url" : {
+              "href" : "#",
+              "type" : "EXTERNAL"
+            }
+          },
+          "text" : "Deploy Theme Instantly"
+        },
+        secondary_button={
+          "link" : {
+            "url" : {
+              "href" : "#",
+              "type" : "EXTERNAL"
+            }
+          },
+          "text" : "Live Interactive Sandbox"
+        },
+        style={
+          "image" : {
+            "corner" : 12
+          }
+        }
       %}
-      {% end_dnd_module %}
-    {% end_dnd_row %}
-    {% dnd_row %}
-      {% dnd_module path="@hubspot/form" %}
       {% end_dnd_module %}
     {% end_dnd_row %}
   {% end_dnd_column %}

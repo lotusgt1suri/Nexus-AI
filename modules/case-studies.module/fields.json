@@ -123,19 +123,50 @@
     "display_width" : null,
     "default" : "How CareAlliance saved $120k in development overhead by deploying a unified CMS architecture."
   }, {
-    "id" : "cards.link",
-    "name" : "link",
+    "id" : "cards.cta",
+    "name" : "cta",
     "label" : "Link",
     "required" : false,
     "locked" : false,
-    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS" ],
-    "show_advanced_rel_options" : false,
-    "type" : "link",
+    "children" : [ {
+      "id" : "cards.cta.text",
+      "name" : "text",
+      "label" : "Text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Read Case Study"
+    }, {
+      "id" : "cards.cta.link",
+      "name" : "link",
+      "label" : "Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "href" : "#",
+          "type" : "EXTERNAL"
+        }
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : true,
+    "group_occurrence_meta" : null,
+    "type" : "group",
     "display_width" : null,
     "default" : {
-      "url" : {
-        "href" : "#",
-        "type" : "EXTERNAL"
+      "text" : "Read Case Study",
+      "link" : {
+        "url" : {
+          "href" : "#",
+          "type" : "EXTERNAL"
+        }
       }
     }
   } ],
