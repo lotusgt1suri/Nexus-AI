@@ -2,5 +2,11 @@
   "files.associations": {
     "*.html": "html-hubl",
     "*.css": "css-hubl"
+  },
+  "[html-hubl]": {
+    "editor.formatOnSave": false
+  },
+  "[css-hubl]": {
+    "editor.formatOnSave": false
   }
 }

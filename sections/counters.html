@@ -1,0 +1,51 @@
+<!--
+  templateType: section
+  label: Counters
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/counters.png
+  description: ""
+-->
+{% dnd_section
+  padding={
+    "default" : {
+      "bottom" : "0px",
+      "left" : "0px",
+      "right" : "0px",
+      "top" : "0px"
+    }
+  },
+  full_width=true
+%}
+  {% dnd_column
+    offset=0,
+    width=12,
+    padding={
+      "default" : {
+        "left" : "0px",
+        "right" : "0px"
+      }
+    }
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="/Nexus/modules/counters",
+        offset=0,
+        width=12,
+        counters=[ {
+          "description" : "CMS Performance Uptime",
+          "value" : "99.9%"
+        }, {
+          "description" : "Dynamic Built-in Modules",
+          "value" : "40+"
+        }, {
+          "description" : "Active Website Deployments",
+          "value" : "18k+"
+        }, {
+          "description" : "Monthly API Transactions",
+          "value" : "150m+"
+        } ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}

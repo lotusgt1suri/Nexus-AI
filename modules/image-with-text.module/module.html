@@ -8,16 +8,17 @@
 	.image-with-text__image {
 		border-radius: {{ module.style.image.corner ~ "px" }};
 	}
+
 	{% if module.style.switch_column %}
 	.image-with-text__content {
 		order: -1;
 	}
+	{% endif %}
 
 	.image-with-text__mini-title {
 		font-size: {{ module.style.mini_title.font_size ~ "px" }};
 		color: rgba({{ module.style.mini_title.color.color|convert_rgb }},{{ module.style.mini_title.color.opacity / 100 }});
-	}
-	{% endif %}
+	}	
 	{% end_scope_css %}
 </style>
 {% end_require_css %}

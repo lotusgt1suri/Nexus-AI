@@ -1,0 +1,123 @@
+<!--
+  templateType: section
+  label: Case studies
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/case-studies.png
+  description: ""
+-->
+{% dnd_section
+  background_color="rgba(248, 250, 252, 1)",
+  padding={
+    "default" : {
+      "bottom" : "80px",
+      "left" : "16px",
+      "right" : "16px",
+      "top" : "80px"
+    }
+  }
+%}
+  {% dnd_column
+    offset=0,
+    width=12,
+    padding={
+      "default" : {
+        "left" : "16px",
+        "right" : "16px"
+      },
+      "mobile" : {
+        "left" : "0px",
+        "right" : "0px"
+      }
+    }
+  %}
+    {% dnd_row %}
+      {% dnd_module
+        path="/Nexus/modules/case-studies",
+        offset=0,
+        width=12,
+        cards=[ {
+          "category" : "HEALTHCARE",
+          "cta" : {
+            "text" : "Read Case Study"
+          },
+          "image" : {
+            "alt" : "healthcare",
+            "height" : 220,
+            "loading" : "lazy",
+            "max_height" : 220,
+            "max_width" : 411,
+            "size_type" : "auto",
+            "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/healthcare.jpg",
+            "width" : 411
+          },
+          "link" : {
+            "url" : {
+              "href" : "#",
+              "type" : "EXTERNAL"
+            }
+          },
+          "summary" : "How CareAlliance saved $120k in development overhead by deploying a unified CMS architecture.",
+          "title" : "Migrating 80 Regional Clinic Portals safely under strict HIPAA compliance rules"
+        }, {
+          "category" : "FINTECH SOLUTIONS",
+          "cta" : {
+            "text" : "Read Case Study"
+          },
+          "image" : {
+            "alt" : "fintech",
+            "height" : 220,
+            "loading" : "lazy",
+            "max_height" : 220,
+            "max_width" : 411,
+            "size_type" : "auto",
+            "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/fintech.jpg",
+            "width" : 411
+          },
+          "link" : {
+            "url" : {
+              "href" : "#",
+              "type" : "EXTERNAL"
+            }
+          },
+          "summary" : "Integrating safe customer widgets and real-time status signals on HubSpot landing blocks.",
+          "title" : "Increasing lead conversions by 55% during high volatility fiscal quarters"
+        }, {
+          "category" : "HIGHER EDUCATION",
+          "cta" : {
+            "text" : "Read Case Study"
+          },
+          "image" : {
+            "alt" : "higher-education",
+            "height" : 220,
+            "loading" : "lazy",
+            "max_height" : 220,
+            "max_width" : 411,
+            "size_type" : "auto",
+            "src" : "https://247027777.fs1.hubspotusercontent-na2.net/hubfs/247027777/higher-education.jpg",
+            "width" : 411
+          },
+          "link" : {
+            "url" : {
+              "href" : "#",
+              "type" : "EXTERNAL"
+            }
+          },
+          "summary" : "How Summit University streamlined editorial access and preserved identity rules easily.",
+          "title" : "Consolidating 14 campus websites into one clean manageable design blueprint"
+        } ],
+        header_link={
+          "link" : {
+            "url" : {
+              "href" : "#",
+              "type" : "EXTERNAL"
+            }
+          },
+          "text" : "View All Case Studies"
+        },
+        heading="Proven results built on the Nexus theme",
+        mini_title="REAL SOLUTIONS"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}
